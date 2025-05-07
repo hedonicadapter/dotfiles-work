@@ -13,10 +13,12 @@
       "cat" = "bat"; # c*ts are terrible people, this config doesn't condone c*t use
       "grep" = "grep --color=auto";
       "git log" = "git log --all --graph --decorate --oneline --pretty=format:'%C(auto)%h %C(bold blue)%an %C(green)(%ar)%C(reset) %s'";
+      "debug-flake" = "nix --extra-experimental-features repl-flake repl";
     };
     zsh-abbr = {
       enable = true;
       abbreviations = {
+        "df" = "debug-flake ";
         "gs" = "git status --short";
         "ga" = "git add ";
         "gap" = "git add --patch";

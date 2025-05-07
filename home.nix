@@ -10,6 +10,7 @@
   imports = [
     ./stuff/kitty.nix
     (import ./stuff/zsh.nix {inherit pkgs;})
+    ./stuff/aerospace.nix
   ];
 
   programs.home-manager.enable = true;
@@ -88,6 +89,7 @@
 
   home.sessionVariables = {
     ZSH_CUSTOM = "${config.home.homeDirectory}/.oh-my-zsh/custom";
+    TERMINAL = "kitty";
   };
 
   home.stateVersion = "24.11";

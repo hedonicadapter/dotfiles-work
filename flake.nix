@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     neovim-flake.url = "github:hedonicadapter/neovim-config-flake/nixc-ts-migration";
+    colors-flake.url = "github:hedonicadapter/colors-flake";
 
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +29,7 @@
     system = "aarch64-darwin";
     pkgs = import nixpkgs {
       inherit system;
+      config.allowUnfree = true; # <-- Move allowUnfree here!
     };
   in {
     darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
@@ -37,7 +39,7 @@
         mac-app-util.darwinModules.default
         (import ./configuration.nix {
           inherit pkgs system;
-          inherit (inputs) neovim-flake;
+          inherit (inputs) neovim-flake colors-flake;
         })
         home-manager.darwinModules.home-manager
         {
