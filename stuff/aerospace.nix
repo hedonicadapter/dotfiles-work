@@ -22,8 +22,8 @@
 
     [gaps.outer]
     bottom = [{ monitor.main = 42 }, 12]
-    left = [{ monitor.main = 180 }, 12]
-    right = [{ monitor.main = 180 }, 12]
+    left = [{ monitor.main = 242 }, 12]
+    right = [{ monitor.main = 242 }, 12]
     top = [{ monitor.main = 42 }, 12]
 
     [key-mapping]
@@ -56,7 +56,7 @@
     alt-shift-j = "move down"
     alt-shift-k = "move up"
     alt-shift-l = "move right"
-    alt-w = "close"
+    alt-w = "close --quit-if-last-window"
     cmd-alt-h = []
     cmd-h = []
 

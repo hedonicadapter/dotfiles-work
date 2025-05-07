@@ -29,7 +29,7 @@
       width = 10.0;
       order = "above";
       active_color = colors-flake.hexColorTo0xAARRGGBB colors-flake.colors.base07 1.0;
-      inactive_color = colors-flake.hexColorTo0xAARRGGBB colors-flake.colors.base04 1.0;
+      inactive_color = colors-flake.hexColorTo0xAARRGGBB colors-flake.colors.base05 1.0;
     };
 
     # aerospace = {
