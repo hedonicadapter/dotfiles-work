@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  colors-flake,
   osConfig,
   ...
 }: {
@@ -20,6 +21,11 @@
     appcleaner
     zoxide
   ];
+
+  stylix = {
+    enable = true;
+    base16Scheme = colors-flake.colors;
+  };
 
   # programs.zen-browser = {
   #   enable = true;

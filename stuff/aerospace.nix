@@ -22,8 +22,8 @@
 
     [gaps.outer]
     bottom = [{ monitor.main = 42 }, 12]
-    left = [{ monitor.main = 242 }, 12]
-    right = [{ monitor.main = 242 }, 12]
+    left = [{ monitor.main = 342 }, 12]
+    right = [{ monitor.main = 342 }, 12]
     top = [{ monitor.main = 42 }, 12]
 
     [key-mapping]

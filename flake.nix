@@ -48,7 +48,13 @@
           ];
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.samherman1 = import ./home.nix;
+          home-manager.users.samherman1 = {
+            imports = [./home.nix];
+          };
+
+          home-manager.extraSpecialArgs = {
+            inherit system pkgs colors-flake;
+          };
         }
       ];
     };
