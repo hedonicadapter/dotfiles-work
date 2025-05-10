@@ -22,49 +22,48 @@
 
     [gaps.outer]
     bottom = [{monitor."^built-in retina display$" = 12}, { monitor.main = 42 }, 12]
-    left = [{monitor."^built-in retina display$" = 12}, { monitor.main = 342 }, 12]
-    right = [{monitor."^built-in retina display$" = 12}, { monitor.main = 342 }, 12]
+    left = [{monitor."^built-in retina display$" = 12}, { monitor.main = 542 }, 12]
+    right = [{monitor."^built-in retina display$" = 12}, { monitor.main = 542 }, 12]
     top = [{monitor."^built-in retina display$" = 12}, { monitor.main = 42 }, 12]
 
     [key-mapping]
     preset = "qwerty"
 
     [mode.main.binding]
-    alt-1 = "workspace 1"
-    alt-2 = "workspace 2"
-    alt-3 = "workspace 3"
-    alt-4 = "workspace 4"
-    alt-5 = "workspace 5"
-    alt-ctrl-h = "resize width -30"
-    alt-ctrl-j = "resize height +30"
-    alt-ctrl-k = "resize height -30"
-    alt-ctrl-l = "resize width +30"
-    alt-d = "mode directories"
-    alt-h = "focus left"
-    alt-j = "focus down"
-    alt-k = "focus up"
-    alt-l = "focus right"
-    alt-m = "fullscreen"
-    alt-shift-1 = ["move-node-to-workspace 1", "workspace 1"]
-    alt-shift-2 = ["move-node-to-workspace 2", "workspace 2"]
-    alt-shift-3 = ["move-node-to-workspace 3", "workspace 3"]
-    alt-shift-4 = ["move-node-to-workspace 4", "workspace 4"]
-    alt-shift-5 = ["move-node-to-workspace 5", "workspace 5"]
-    alt-shift-r = "reload-config"
-    alt-shift-f = "layout floating tiling"
-    alt-shift-h = "move left"
-    alt-shift-j = "move down"
-    alt-shift-k = "move up"
-    alt-shift-l = "move right"
-    alt-w = "close --quit-if-last-window"
+    cmd-1 = "workspace 1"
+    cmd-2 = "workspace 2"
+    cmd-3 = "workspace 3"
+    cmd-4 = "workspace 4"
+    cmd-5 = "workspace 5"
+    cmd-ctrl-h = "resize width -30"
+    cmd-ctrl-j = "resize height +30"
+    cmd-ctrl-k = "resize height -30"
+    cmd-ctrl-l = "resize width +30"
+    cmd-d = "mode directories"
+    cmd-h = "focus left"
+    cmd-j = "focus down"
+    cmd-k = "focus up"
+    cmd-l = "focus right"
+    cmd-m = "fullscreen"
+    cmd-shift-1 = ["move-node-to-workspace 1", "workspace 1"]
+    cmd-shift-2 = ["move-node-to-workspace 2", "workspace 2"]
+    cmd-shift-3 = ["move-node-to-workspace 3", "workspace 3"]
+    cmd-shift-4 = ["move-node-to-workspace 4", "workspace 4"]
+    cmd-shift-5 = ["move-node-to-workspace 5", "workspace 5"]
+    cmd-shift-r = "reload-config"
+    cmd-shift-f = "layout floating tiling"
+    cmd-shift-h = "move left"
+    cmd-shift-j = "move down"
+    cmd-shift-k = "move up"
+    cmd-shift-l = "move right"
+    cmd-w = "close --quit-if-last-window"
     cmd-alt-h = []
-    cmd-h = []
 
-    alt-u = "mode utility"
-    alt-b = "mode browser"
-    alt-q = "mode query"
-    alt-r = "mode run"
-    alt-s = "mode system"
+    cmd-u = "mode utility"
+    cmd-b = "mode browser"
+    cmd-q = "mode query"
+    cmd-r = "mode run"
+    cmd-s = "mode system"
 
     [mode.powermenu.binding]
     esc = "mode system"

@@ -22,7 +22,20 @@
     brave
   ];
 
+  nixpkgs.overlays = [
+    (self: super: {
+      karabiner-elements = super.karabiner-elements.overrideAttrs (old: {
+        version = "14.13.0";
+
+        src = super.fetchurl {
+          inherit (old.src) url;
+          hash = "sha256-gmJwoht/Tfm5qMecmq1N6PSAIfWOqsvuHU8VDJY8bLw=";
+        };
+      });
+    })
+  ];
   services = {
+    karabiner-elements.enable = true;
     jankyborders = {
       enable = true;
       hidpi = true;
@@ -40,11 +53,17 @@
       swapLeftCtrlAndFn = true;
     };
     defaults = {
+      ".GlobalPreferences"."com.apple.mouse.scaling" = 1.0; # mouse accel
       dock = {
         autohide = true;
       };
 
-      NSGlobalDomain.NSWindowShouldDragOnGesture = true; # ctrl + cmd + drag = drag windows
+      NSGlobalDomain = {
+        KeyRepeat = 1;
+        InitialKeyRepeat = 1;
+        AppleShowAllFiles = true; # finder hidden files
+        NSWindowShouldDragOnGesture = true; # ctrl + cmd + drag = drag windows
+      };
 
       CustomSystemPreferences = {
         "/var/root/Library/Preferences/com.apple.CoreBrightness.plist" = let

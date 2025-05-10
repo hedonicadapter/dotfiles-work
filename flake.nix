@@ -18,6 +18,8 @@
 
     # zen-browser.url = "github:0xc000022070/zen-browser-flake";
     # zen-browser.inputs.nixpkgs.follows = "nixpkgs";
+
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix/24.11";
   };
 
   outputs = inputs @ {
@@ -29,7 +31,8 @@
     system = "aarch64-darwin";
     pkgs = import nixpkgs {
       inherit system;
-      config.allowUnfree = true; # <-- Move allowUnfree here!
+      config.allowUnfree = true;
+      overlays = [];
     };
   in {
     darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
@@ -45,6 +48,7 @@
         {
           home-manager.sharedModules = [
             mac-app-util.homeManagerModules.default
+            spicetify-nix.homeManagerModules.spicetify
           ];
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -53,7 +57,7 @@
           };
 
           home-manager.extraSpecialArgs = {
-            inherit system pkgs colors-flake;
+            inherit system pkgs colors-flake spicetify-nix;
           };
         }
       ];
