@@ -82,6 +82,7 @@
     esc = "mode main"
 
     [mode.utility.binding]
+    p = ["exec-and-forget screencapture -i -c", "mode main"]
     esc = "mode main"
 
     [mode.audio.binding]

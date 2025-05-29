@@ -3,6 +3,7 @@
   pkgs,
   colors-flake,
   spicetify-nix,
+  lib,
   osConfig,
   ...
 }: {
@@ -11,7 +12,7 @@
 
   imports = [
     ./stuff/kitty.nix
-    (import ./stuff/zsh.nix {inherit pkgs;})
+    (import ./stuff/zsh.nix {inherit pkgs lib;})
     ./stuff/aerospace.nix
     # ./stuff/karabiner-elements.nix
   ];
@@ -23,6 +24,9 @@
     appcleaner
     zoxide
     raycast
+    slack
+    autoraise
+    aider-chat # ai chat
   ];
 
   stylix = {
@@ -37,6 +41,13 @@
   #     DisableTelemetry = true;
   #   };
   # };
+
+  programs.gpg = {
+    enable = true;
+  };
+  services.gpg-agent = {
+    enable = true;
+  };
 
   programs.direnv = {
     enable = true;

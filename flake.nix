@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    neovim-flake.url = "github:hedonicadapter/neovim-config-flake/nixc-ts-migration";
+    neovim-flake.url = "github:hedonicadapter/neovim-config-flake";
     colors-flake.url = "github:hedonicadapter/colors-flake";
 
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
@@ -26,6 +26,7 @@
     self,
     nixpkgs,
     nix-darwin,
+    colors-flake,
     ...
   }: let
     system = "aarch64-darwin";
@@ -34,6 +35,7 @@
       config.allowUnfree = true;
       overlays = [];
     };
+    # colors-flake.colors = builtins.fromJSON (builtins.readFile ./stuff/colors.json);
   in {
     darwinConfigurations."default" = nix-darwin.lib.darwinSystem {
       inherit system;

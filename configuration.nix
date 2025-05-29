@@ -22,6 +22,8 @@
     brave
   ];
 
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   nixpkgs.overlays = [
     (self: super: {
       karabiner-elements = super.karabiner-elements.overrideAttrs (old: {
@@ -47,6 +49,7 @@
   };
 
   system = {
+    primaryUser = "samherman1";
     keyboard = {
       enableKeyMapping = true;
       remapCapsLockToEscape = true;

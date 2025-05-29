@@ -17,6 +17,7 @@
     settings = {
       scrollback_indicator_opacity = "0.7";
       mouse_hide_wait = -1;
+      focus_follows_mouse = true;
       show_hyperlink_targets = "yes";
       paste_actions = "quote-urls-at-prompt,filter,confirm-if-large";
       confirm_os_window_close = 0;

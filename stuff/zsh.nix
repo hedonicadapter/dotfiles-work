@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = with pkgs; [
     lsd
     bat
@@ -35,6 +39,8 @@
         "dcd" = "docker-compose down";
         "dcu" = "docker-compose up";
 
+        "kc" = "kubectl";
+
         "ns" = "nix-shell --run zsh ";
       };
     };
@@ -49,7 +55,12 @@
       searchUpKey = "^p";
     };
     enableCompletion = true;
-    initExtra = ''
+    # initContent = let
+    #   # zshConfigEarlyInit = lib.mkOrder 500 "do something";
+    #   zshConfig = lib.mkOrder 1000 "do something";
+    # in
+    #   lib.mkMerge [zshConfigEarlyInit zshConfig];
+    initContent = lib.mkOrder 1000 ''
       # Load fzf-tab after `compinit`, but before plugins that wrap widgets
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.zsh
       function git() {
@@ -62,10 +73,6 @@
           else
               command git "$@"
           fi
-      }
-
-      nix-refresh() {
-        sudo nixos-rebuild switch --flake "$@" --show-trace --impure && nvd diff /run/current-system result
       }
 
       cheat() {
@@ -96,5 +103,10 @@
       '';
       theme = "headline/headline";
     };
+  };
+
+  home.file.".hushlogin" = {
+    enable = pkgs.stdenv.isDarwin;
+    text = "";
   };
 }
